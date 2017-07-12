@@ -1,0 +1,36 @@
+<view class="container">
+
+    <scroll-view scroll-top="{{scrollTop}}" scroll-y="true" bindscrolltolower="loadmore" bindscroll="scroll"
+                 bindscrolltoupper="refresh">
+
+        <view bindtap="switchToDetail" data-index="{{index}}" class="item" wx:for="{{list}}" style="margin-top:5px;">
+
+
+            <view class="item_content">
+                <view class="classname">
+                    <text class="small_text"> 提现金额： </text>
+                    <text class="small_text text_right red"> ￥{{item.fetch_money}}</text>
+                </view>
+
+                <view class="classname">
+                    <text class="small_text"> 提现状态： </text>
+                    <text id="price" class="small_text text_right"> {{item.fetch_status}} </text>
+                </view>
+
+
+            </view>
+
+            <view class="item_date">
+                <view class="float_left">{{item.created_at}}</view>
+            </view>
+        </view>
+
+    </scroll-view>
+
+
+    <import src="../templates/empty_template.wxml"/>
+    <view wx:if="{{list.length == 0}}">
+        <template is="empty_template"/>
+    </view>
+
+</view>

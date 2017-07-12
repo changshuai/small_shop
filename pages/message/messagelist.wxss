@@ -1,0 +1,11 @@
+/* pages/product/list.wxss */
+.userinfo-avatar {
+    width: 80rpx;
+    height: 80rpx;
+    margin: 5px;
+    border-radius: 50%;
+}
+.preview_product{
+    width: 45px;
+    height: 45px;
+}

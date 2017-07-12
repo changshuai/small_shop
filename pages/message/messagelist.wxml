@@ -1,0 +1,39 @@
+<!--pages/product/list.wxml-->
+<view class="container">
+    <scroll-view scroll-top="{{scrollTop}}" scroll-y="true"
+                 bindscrolltolower="bindDownLoad" bindscroll="scroll" bindscrolltoupper="refresh">
+
+        <view bindtap="switchToConversation" data-index="{{index}}" class="item" wx:for="{{list}}" style="margin-bottom:5px;">
+
+            <view style="display:flex; justify-content:space-between;align-items:center;margin-bottom: 10px" >
+                <view style="display:flex;align-items:center">
+                    <image catchtap="onUserIconTap" data-index="{{index}}" class="userinfo-avatar" src="{{item.user.avatar}}" background-size="cover"></image>
+                    <view>
+                        <text class="userinfo-nickname" style="display: block;">{{item.user.displayName}}</text>
+                        <text class="userinfo-nickname" style="display: block;font-size: 14px;">{{item.message.text}}</text>
+                        <text class="userinfo-nickname" style="display: block;font-size: 10px;margin-top: 5px;">{{item.message.created_at}}</text>
+                    </view>
+
+                </view>
+                <!--<view class="icon" style="margin-right:10px;" catchtap="onUserTap" data-userIndex="{{index}}"></view>-->
+                <image class="preview_product" src="{{item.product.image}}"></image>
+            </view>
+
+        </view>
+    </scroll-view>
+
+    <view class="body-view">
+        <loading hidden="{{hidden}}" bindchange="loadingChange">
+            加载中...
+        </loading>
+    </view>
+
+    <import src="../templates/empty_template.wxml"/>
+    <view wx:if="{{list.length == 0}}">
+        <template is="empty_template"/>
+    </view>
+
+    <!--<view class="loadMore" hidden="{{!has_more || list.length == 0}}">加载更多...</view>-->
+    <!--<view class="loadMore" hidden="{{has_more || list.length == 0}}">没有更多了</view>-->
+
+</view>

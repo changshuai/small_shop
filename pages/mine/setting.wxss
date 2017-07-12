@@ -1,0 +1,46 @@
+/**index.wxss**/
+.container {
+  padding: 10px 0px;
+  background-color: white;
+}
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.info {
+  margin-top: 20px;
+  text-align: center;
+  background-color: white;
+}
+
+.item_mine {
+  margin-top:-1px;
+  background-color:white;
+  display:flex;
+  align-items:center;
+  border-bottom:2px solid #eee;
+  height:40px;
+}
+
+.item_icon{
+  width: 30px;
+  height: 30px;
+  margin: 10px;
+  margin-left:15px;
+}
+.item_text {
+  margin-left: 20px;
+  font-size: 15px;
+  margin-top: 5px;
+}

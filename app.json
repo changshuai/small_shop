@@ -1,0 +1,79 @@
+{
+  "pages":[
+    "pages/home/main",
+    "pages/product/list",
+    "pages/product/create/input",
+    "pages/product/detail",
+    "pages/order/list",
+    "pages/order/orderDetail",
+    "pages/order/orderConfirm",
+    "pages/order/expressSender",
+    "pages/order/myBuyList",
+    "pages/mine/index",
+    "pages/auth/bind",
+    "pages/auth/terms",
+    "pages/auth/idCard",
+    "pages/auth/bankCard",
+    "pages/payment/payment",
+    "pages/trade/list",
+    "pages/mine/money",
+    "pages/mine/listFetch",
+    "pages/mine/adviceMessage",
+    "pages/mine/setting",
+    "pages/user/productlist",
+    "pages/user/followlist",
+    "pages/complain/complainlist",
+    "pages/complain/complainnew",
+    "pages/message/messagelist",
+    "pages/message/conversation",
+    "pages/status/success",
+    "pages/help/help",
+    "pages/help/helpContent",
+    "pages/help/about"
+  ],
+  
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle":"black",
+    "enablePullDownRefresh": true
+  },
+
+   "tabBar": {
+     
+    "list": [
+    
+     {
+      "pagePath":"pages/home/main",
+      "text": "首页",
+      "iconPath": "pages/images/tab/product.png",
+      "selectedIconPath": "pages/images/tab/product_selected.png"
+      },
+     {
+      "pagePath" : "pages/order/list",
+      "text": "订单",
+      "iconPath": "pages/images/tab/order.png",
+      "selectedIconPath": "pages/images/tab/order_selected.png"
+    },
+    {
+      "pagePath" : "pages/message/messagelist",
+      "text": "消息",
+      "iconPath": "pages/images/tab/message.png",
+      "selectedIconPath": "pages/images/tab/message_selected.png"
+    },
+    {
+      "pagePath" : "pages/mine/index",
+      "text": "我的",
+      "iconPath": "pages/images/tab/me.png",
+      "selectedIconPath": "pages/images/tab/me_selected.png"
+    }
+    ]
+  },
+
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  
+  "debug": false
+}

@@ -1,0 +1,41 @@
+<!--pages/product/list.wxml-->
+<import src="../templates/product_template.wxml"/>
+<import src="../templates/empty_template.wxml"/>
+<view class="container">
+    <scroll-view scroll-top="{{scrollTop}}" scroll-y="true"
+                 bindscrolltolower="bindDownLoad" bindscroll="scroll" bindscrolltoupper="refresh">
+
+        <view bindtap="switchToDetail" data-index="{{index}}" class="item" wx:for="{{list}}" style="margin-bottom:5px;">
+
+
+            <template is="product_item_cell" data="{{...item}}"/>
+
+            <view class= "item_bottom_del">
+                <view wx:if="{{item.product.online == 0}}" data-index="{{index}}" catchtap = "editItem" class="product_item_status">审核中...</view>
+                <view wx:if="{{item.product.online == 1}}" data-index="{{index}}" catchtap = "editItem" class="product_item_status">审核通过</view>
+                <view wx:if="{{item.product.recommand == 1}}" data-index="{{index}}" catchtap = "editItem" class="product_item_status">已推荐</view>
+
+                <view data-index="{{index}}" catchtap = "editItem" style="display: inline-block;margin-right: 20px">修改</view>
+                <view data-index="{{index}}" catchtap = "delItem"  style="display: inline-block;">删除</view>
+            </view>
+
+            <!--<view class= "item_bottom_del" data-index="{{index}}" catchtap = "delItem" >删除</view>-->
+            <!--</view>-->
+        </view>
+    </scroll-view>
+
+    <view class="body-view">
+        <loading hidden="{{hidden}}" bindchange="loadingChange">
+            加载中...
+        </loading>
+    </view>
+
+    <import src="../templates/empty_template.wxml"/>
+    <view wx:if="{{list.length == 0}}">
+        <template is="empty_template"/>
+    </view>
+
+    <!--<view class="float-action" bindtap="switchToCreate" style="opacity: {{ballOpacity}};bottom:{{ballBottom}}px;right:{{ballRight}}px;" bindtouchmove="ballMoveEvent">
+    </view>-->
+
+</view>

@@ -1,0 +1,46 @@
+.item_content {
+  margin-top: 5px;
+  font-size: 14px;
+  display: flex;
+  align-items:center;
+}
+
+.item_status {
+  margin-top: 5px;
+  border-bottom: 1px solid #F2F2F2;
+  padding-bottom: 5px;
+  font-size: 12px;
+}
+
+.cell_pro_from {
+  left:0px;
+}
+
+.cell_pro_status {
+  float: right;
+  right: 10px;
+  font-size: 12px;
+  padding: 2px 6px;
+  margin-bottom: 5px;
+  border:1px solid limegreen;
+}
+
+.item {
+  padding: 10px;
+  background-color: #fff;
+  color: #787878;
+  border-top: 1px solid #eaeaea;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.item_image {
+  width:80px;
+  height:80px;
+  margin-right:2px;
+  float: left;
+}
+.item_title {
+  margin:10px;
+  float:left;
+  width:80%;
+}

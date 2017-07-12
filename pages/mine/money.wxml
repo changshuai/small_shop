@@ -1,0 +1,36 @@
+
+<view class="page">
+
+    <view class="section_item">
+        <view class="classname">
+            <text class="small_text"> 余额 </text>
+            <text id="price" class="small_text text_right red"> ￥{{total}} </text>
+        </view>
+
+    </view>
+
+    <view class="section_item">
+        <view class="classname" bindtap="onListFetch" >
+            <text class="small_text" > 提现记录 </text>
+        </view>
+
+    </view>
+
+    <view class="section_item"  style="margin-top: 20px">
+        <view class="classname" style="font-size: 12px">
+            <text class="" style="font-size: 13px"> 【 提现须知 】 </text>
+            <import src="../templates/help_template.wxml"/>
+            <template is="fetch_help_template"/>
+        </view>
+    </view>
+
+    <view class="fix_bottom section_item inner_item" hidden="{{total == 0}}">
+        <view style="display: flex;">
+            <input class="input_border" type="digit" step="0.01" bindinput="moneyInput" maxlength="6" placeholder="0" />
+            <span style="margin-right:10px;position:absolute;right:0;">元</span>
+        </view>
+
+        <button type="warn" style="margin-top:10px" bindtap="fetchMoney">提现</button>
+    </view>
+
+</view>

@@ -1,0 +1,91 @@
+<!--pages/product/detail.wxml-->
+<view class="container">
+    <swiper indicator-dots="false" autoplay="true">
+        <block wx:for="{{product.images}}">
+            <swiper-item>
+                <image src="{{item}}" class="slide-image" height="320" mode="aspectFill"/>
+            </swiper-item>
+        </block>
+    </swiper>
+    <view class="product_content">
+        <view class="content">
+            <view class="text">
+                <text class="product_title">{{product.name}}</text>
+            </view>
+
+            <view class="text">
+                <text class="real_price" style="display: inline">
+                    <text class="rmb">¥ </text><text>{{product.price}}</text>
+
+                </text>
+                <text class="ori_price">{{product.original_price}}</text>
+                <!--<text class="sale_number">{{product.price}} 已购 </text>-->
+            </view>
+
+            <view class="text" class="post_info">
+                <text class="title">快递：{{product.deliveryFee}}</text>
+
+                <text class="title" style="float:right">产地：{{product.address}}</text>
+            </view>
+
+            <view class="section_item">
+                <view class="title-box">商品描述</view>
+
+                <view class="product_des">
+                    <text>{{product.description}}</text>
+                </view>
+            </view>
+
+
+            <!--<view class="tags">
+                <span class="span_tag">眼镜</span>
+                <span class="span_tag">眼镜</span>
+            </view>-->
+
+        </view>
+    </view>
+    <view class="view_image_container">
+        <view class="view_image" wx:for="{{product.images}}">
+            <image mode="widthFix" src="{{item}}"></image>
+        </view>
+    </view>
+
+    <view class="float-action" hidden="{{isMime}}" bindtouchmove="ballMoveEvent">
+        <!--<button class="panel_buy" bindtap="onChat" >留言</button>-->
+        <view class="bottom_panel_btn left"  bindtap="onbChat">
+            <image src="../images/icon_message.png"></image>
+            <text>问问</text>
+        </view>
+
+        <button class="bottom_panel_btn left forward_button" open-type="share" bindtap="onShare">
+            <!--<button style="float: left">-->
+            <image src="../images/Icon_forward.png" style="margin-left:0"></image>
+            <text>转发</text>
+            <!--</button>-->
+        </button>
+        <view class="bottom_panel_btn right" bindtap="onOrder"><text>立即购买</text></view>
+        <!--<button class="panel_buy_right" bindtap="onOrder" >预定</button>-->
+        <!--<button class="panel_buy" bindtap="onOrder">立即购买</button>-->
+    </view>
+
+    <view class="float-action float_text" bindtap="" hidden="{{!isMime}}" bindtouchmove="ballMoveEvent">
+        <text>点击右上角进行分享</text>
+    </view>
+
+    <view class="panel_confirm " hidden="{{isConfirmHide}}">
+        <image class="close_btn" bindtap="onCloseNumberConfirm" src="../images/del.png"></image>
+
+        <view class="panel_confirm_number">
+            <text class="" style="margin-left: 20px;">数量</text>
+            <view style="width: 50%;"></view>
+            <view>
+                <button class="mini-btn number_reduce" size="mini" style="float:left" bindtap="onReduce">-</button>
+                <input class="number_input float_left" style="float:left" type="number" value="{{buy_number}}"/>
+                <button class="mini-btn number_increasef" size="mini" style="float:left" bindtap="onIncrease">+</button>
+            </view>
+        </view>
+
+        <button type="warn" bindtap="onNumberConfirm">确定</button>
+    </view>
+
+</view>

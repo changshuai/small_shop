@@ -1,0 +1,67 @@
+<view class="page">
+    <view class="section_item">
+        <view class="receive_info">
+            <view class="user_info">
+                <text>{{content.name}}</text>
+                <text style="margin-left:15px">{{content.mobile}}</text>
+            </view>
+            <view class="address">
+            <text>{{content.address}}</text>
+            </view>
+        </view>
+    </view>
+
+    <view class="section_item product_wrapper">
+
+
+        <view class="view_image_wrapper">
+            <image class="view_image_item" mode="aspectFill"  src="{{content.product.images[0] + '?imageView2/1/w/200/h/200' }}"></image>
+        </view>
+        <text class="title">{{content.product.name}}</text>
+
+        <text class="small_text price_text">￥{{content.product.price}}</text>
+        <text class="small_text number_text">x {{content.buy_number}}</text>
+    </view>
+
+    <view class="section_item">
+        <view class="classname">
+            <text class="small_text"> 商品总额 </text>
+            <text id="price" class="small_text text_right red"> ￥{{content.product.price * content.buy_number}} </text>
+        </view>
+
+        <view class="classname">
+            <text class="small_text"> 运费 </text>
+            <text id="delivery_fee" class="small_text text_right red"> ￥{{content.product.deliveryFee}} </text>
+        </view>
+        
+    </view>
+
+    <view class="section_item">
+        <view class="classname" style="font-size: 12px">
+            <text class="" style="font-size: 13px"> 【 购买须知 】 </text>
+            <text class="">
+                1、本平台不保证商品的质量，请消费者自行鉴别。
+                2、本平台所有商品相关的服务包括但不限于售后服务，全部由卖方提供。
+                3、应用内不提供退款功能，买卖双方达成退货协议后可联系客服处理。
+                4、本平台暂时不提供发票服务。
+            </text>
+        </view>
+
+    </view>
+
+    <view class="fix_bottom section_item inner_item">
+        <view class="inline_block float_left" style="margin-top: 15px">
+            <text> 总计 </text>
+            <text class="red" wx:if="{{order_id == ''}}"> ￥{{ total }} </text>
+            <text class="red" wx:if="{{order_id != ''}}"> ￥{{ content.pay_amount }} </text>
+        </view>
+        <!--<button type="warn" style="margin-top:10px" bindtap="onConfirm">确认</button>-->
+        <view class="inline_block float_right">
+            <form report-submit="true" bindsubmit="formSubmit">
+                <button class="panel_buy_left"  form-type="submit" data-type='1' bindtap="onPay" disabled="{{onConfirm_enable}}">支付</button>
+                <!--<button class="panel_buy_right" form-type="submit" data-type='0' bindtap="onOrder" >预定</button>-->
+            </form>
+        </view>
+    </view>
+
+</view>

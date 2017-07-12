@@ -1,0 +1,4 @@
+.item_text {
+    background:white;
+    padding: 0px 15px;
+}

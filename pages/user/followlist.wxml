@@ -1,0 +1,38 @@
+<!--pages/product/list.wxml-->
+
+<view class="container">
+    <scroll-view scroll-top="{{scrollTop}}" scroll-y="true"
+                 bindscrolltolower="bindDownLoad" bindscroll="scroll" bindscrolltoupper="refresh">
+
+        <view bindtap="switchToUser" data-index="{{index}}" class="item" wx:for="{{list}}" style="margin-bottom:5px;">
+
+            <view style="display:flex; justify-content:space-between;align-items:center;margin-bottom: 10px" >
+                <view catchtap="onUserTap" data-index="{{index}}" style="display:flex;align-items:center">
+                    <image class="userinfo-avatar" src="{{item.avatar_url}}" background-size="cover"></image>
+                    <text class="userinfo-nickname">{{item.display_name}}</text>
+                </view>
+                <!--<view class="icon" style="margin-right:10px;" catchtap="onUserTap" data-userIndex="{{index}}"></view>-->
+                <image class="dd_icon" src="../images/dropdown_icon.png" catchtap="onDropdown" data-index="{{index}}"></image>
+            </view>
+
+        </view>
+    </scroll-view>
+    <view class="body-view">
+        <loading hidden="{{hidden}}" bindchange="loadingChange">
+            加载中...
+        </loading>
+    </view>
+
+    <import src="../templates/empty_template.wxml"/>
+    <view wx:if="{{list.length == 0}}">
+        <template is="empty_template"/>
+    </view>
+
+
+    <view class="loadMore" hidden="{{!has_more || list.length == 0}}">加载更多...</view>
+    <view class="loadMore" hidden="{{has_more || list.length < 15}}">没有更多了</view>
+
+    <!--<view class="float-action" bindtap="switchToCreate" style="opacity: {{ballOpacity}};bottom:{{ballBottom}}px;right:{{ballRight}}px;" bindtouchmove="ballMoveEvent">
+    </view>-->
+
+</view>

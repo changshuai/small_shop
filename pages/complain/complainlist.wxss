@@ -1,0 +1,6 @@
+.item {
+    padding: 10px;
+    background-color: #fff;
+    color: #787878;
+    border-bottom: 1px solid #eaeaea;
+}

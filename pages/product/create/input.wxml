@@ -1,0 +1,153 @@
+<view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
+    <!--<view class="page__hd">
+        <!--<view class="page__title">Input</view>-->
+        <!--<view class="page__desc">表单输入</view>-->
+    <!--</view>-->
+    <view class="page__bd">
+        <!-- 名称 -->
+        <view style="display:flex;margin-left:15px;padding-top:15px;">
+            <text>名称：</text>
+            <input bindinput="nameInput" placeholder="请输入产品名称" maxlength="32" value="{{name}}"class="input_border"/>
+        </view>
+
+        <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">错误提示</view>
+        <view class="weui-flex" style="margin-left:15px;margin-top:10px">
+            <view class="weui-flex__item" style="display:flex;"> 
+                <text>单价：</text>
+                <input class="input_border" type="digit" step="0.01" bindinput="priceInput" maxlength="6" style="width:45px;" placeholder="0" value="{{price}}" /><span style="margin-right:10px">元</span>
+             </view>
+            <!--<view class="weui-flex__item" style="display:flex;">-->
+                <!---->
+                <!--<text>库存：</text>-->
+                <!--<input type="number" bindinput="stockInput" maxlength="4" style="width:45px; margin-left:10px;" placeholder="0" value="{{stock}}" /><span style="margin-right:10px"></span>-->
+                <!---->
+            <!--</view>-->
+        </view>
+
+        <view class="section" style="display:flex;margin-left:15px;margin-top:10px;"> 
+            <text>快递：</text>
+            <view hidden="{{isDeliveryFree}}">
+                <view style="display:flex">
+                    <input  class="input_border" type="digit" bindinput="deliveryFeeInput" maxlength="4" style="width:25px; margin-left:10px;" placeholder="0" value="{{deliveryFee}}"/>
+                    <span style="margin-right:10px">元</span>
+                </view>
+            </view>
+            包邮
+            <view class="weui-agree__text" bindtap="onDeliveryFreeTap">
+                    <checkbox class="weui-agree__checkbox" id="weuiAgree" value="agree" checked="{{isDeliveryFree}}" />
+                    <view class="weui-agree__checkbox-icon">
+                        <icon class="weui-agree__checkbox-icon-check" type="success_no_circle" size="9" wx:if="{{isDeliveryFree}}"></icon>
+                    </view>
+            </view>
+            
+        </view>
+
+        <!--&lt;!&ndash;代理&ndash;&gt;-->
+        <!--<checkbox-group bindchange="bindAgreeChange" style="margin-top:10px; margin-left:15px;">-->
+            <!--<view class="weui-agree__text" bindtap="bindAgreeChange" >-->
+                <!--<checkbox class="weui-agree__checkbox" id="agentAgree" value="agree" checked="{{allowAgent}}" />-->
+                <!--<view class="weui-agree__checkbox-icon">-->
+                    <!--<icon class="weui-agree__checkbox-icon-check" type="success_no_circle" size="9" wx:if="{{allowAgent}}"></icon>-->
+                <!--</view>-->
+                <!--<span style="margin-left:10px;margin-right:10px;">充许代理 </span>-->
+                <!--<navigator url="" class="weui-agree__link" > <icon type="info_circle" size="15"></icon></navigator>-->
+            <!--</view>-->
+
+            <!--<view hidden="{{!allowAgent}}">-->
+            <!--<view style="display:flex;"> -->
+                <!--<text>佣金比例：</text>-->
+                <!--&lt;!&ndash;<a class="weui-btn weui-btn_mini weui-btn_primary">按钮</a>&ndash;&gt;-->
+                <!--<button class="weui-btn mini-btn" type="default" size="mini" style="margin:0;">-</button>-->
+                <!--<input bindinput="agentPercentInput" type="number" maxlength="2" style="width:25px; margin-left:10px;" placeholder="0"/><span style="margin-right:10px">%</span>-->
+                <!--<button class="weui-btn mini-btn" type="default" size="mini" style="margin:0;">+</button>-->
+            <!--</view>-->
+            <!--</view>-->
+        <!--</checkbox-group>-->
+
+        <!-- 产地 -->
+        <view style="display:flex;margin-left:15px;margin-top:15px"> 
+            <text>产地：</text>
+            <input class="input_border" bindinput="addressInput" placeholder="原产地" maxlength="10" value="{{address}}"/>
+        </view>
+
+        <view style="display:flex;margin-left:15px;margin-top:15px" bindtap="onSelectCategory">
+            <text>分类：</text>
+            <block bindtap="onSelectCategory">{{category_name == ''? '请选择分类':category_name}}<image bindtap="onSelectCategory" style="width: 15px;height: 15px" class="dd_icon" src="../../images/icon_arrowdown.png"></image></block>
+        </view>
+
+        <!--<view style="display:flex;margin-left:15px;margin-top:15px" bindtap="onSelectCategory">-->
+            <!--<text>规格：</text>-->
+            <!--<block bindtap="onSelectCategory">{{category_name == ''? '请选择分类':category_name}}<image bindtap="onSelectCategory" style="width: 15px;height: 15px" class="dd_icon" src="../../images/icon_arrowdown.png"></image></block>-->
+        <!--</view>-->
+
+        <view class="weui-cells">
+            <view class="weui-cell">
+                <view class="weui-cell__bd">
+                    <view class="weui-uploader">
+                        <view class="weui-uploader__hd">
+                            <view class="weui-uploader__title">图片上传</view>
+                            <view class="weui-uploader__info">{{files.length}}/6</view>
+                        </view>
+                        <view class="weui-uploader__bd">
+                            <view class="weui-uploader__files" id="uploaderFiles">
+                                <block wx:for-items="{{images}}" wx:key="{{index}}" hidden="{{files.length > 0}}">
+                                    <view class="weui-uploader__file" bindtap="previewImage" id="{{item}}" hidden="{{files.length > 0}}">
+                                        <!--<span class="span_image_del"></span>-->
+                                        <icon type="clear" size="16" class="image_remove" color="red" catchtap="onImageRemoveEditmode" data-index="{{index}}"></icon>
+                                        <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+
+                                    </view>
+                                </block>
+
+                                <block wx:for-items="{{files}}" wx:key="{{index}}">
+                                    <view class="weui-uploader__file" bindtap="previewImage" id="{{item}}">
+                                        <!--<span class="span_image_del"></span>-->
+                                        <icon type="clear" size="16" class="image_remove" color="red" catchtap="onImageRemove" data-index="{{index}}"></icon>
+                                        <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+
+                                    </view>
+                                </block>
+                            </view>
+                            <view class="weui-uploader__input-box" >
+                                <view class="weui-uploader__input" bindtap="chooseImage"></view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+
+
+        <view class="weui-cells__title">产品介绍</view>
+        <view class="weui-cells weui-cells_after-title" hidden="{{category_list && category_list.length > 0}}">
+            <view class="weui-cell">
+                <view class="weui-cell__bd">
+                    <textarea id="product_detail" class="weui-textarea" bindinput="limitedWordsNum" placeholder="请输入产品详情" value="{{detail}}" style="height: 6.3em" maxlength="500" />
+                    <view  class="weui-textarea-counter"><span id="product_detail_couter">{{textearaLen}}</span>/1000</view>
+                </view>
+            </view>
+        </view>
+
+
+
+
+        <view class="weui-btn-area">
+            <button class="weui-btn" type="warn" bindtap="sendProduct" disabled="{{isUploading}}">发布</button>
+        </view>
+    </view>
+</view>
+
+<view style="position: absolute;top: 0px;background-color:white;width:100%;z-index:5000;" hidden="{{!category_list || category_list.length == 0}}">
+    <scroll-view scroll-top="{{scrollTop}}" scroll-y="true"
+                 bindscrolltolower="bindDownLoad" bindscroll="scroll" bindscrolltoupper="refresh">
+
+        <view bindtap="onItemClick" data-index="{{index}}" class="item" wx:for="{{category_list}}" style="margin-bottom:5px;">
+
+            <view style="display:flex; justify-content:space-between;align-items:center" >
+                <text class="">{{item.name}}</text>
+            </view>
+
+        </view>
+    </scroll-view>
+
+</view>

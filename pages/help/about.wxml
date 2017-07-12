@@ -1,0 +1,18 @@
+<view style=" display: flex;flex-direction: column;align-items: center; background-color: white">
+    <view style="width: 100px;height: 100px">
+        <image bindtap="onUserIconTap" style="width: 100px;height: 100px" src="../images/company_logo.png" background-size="cover"></image>
+    </view>
+        <text class="userinfo-nickname" style="margin-top: 20px;margin-bottom: 10px">北京聚鲜佳科技有限公司 出品</text>
+</view>
+
+<view class="section" style="margin-top:20px">
+    <view class="item_mine" bindtap="onHelp" data-type="upload">
+        <text class="item_text">QQ:    1517459273</text>
+    </view>
+    <view class="item_mine" bindtap="onHelp" data-type="trade">
+        <text class="item_text">邮箱：weixin_tiny@163.com</text>
+    </view>
+    <view class="item_mine" bindtap="onHelp" data-type="buy">
+        <text class="item_text">微信：gh_40521b3ef1c6</text>
+    </view>
+</view>

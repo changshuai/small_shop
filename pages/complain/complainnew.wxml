@@ -1,0 +1,11 @@
+<view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell">
+        <view class="weui-cell__bd">
+            <textarea class="weui-textarea" bindinput="messageInput" placeholder="请输入投诉内容！" style="height: 6.3em" maxlength="500" />
+            <view  class="weui-textarea-counter"><span id="product_detail_couter">{{message_len}}</span>/500</view>
+        </view>
+    </view>
+</view>
+<view class="fix_bottom section_item inner_item">
+    <button type="warn" style="margin-top:10px" bindtap="onsubmit">提交</button>
+</view>

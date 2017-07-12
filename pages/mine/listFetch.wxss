@@ -1,0 +1,10 @@
+/* pages/mine/listFetch.wxss */
+.item_date {
+  right:10px;
+  text-align:right;
+  border-top:1px solid #eaeaea;
+  font-size:12px;
+  color:gray;
+  padding-top:10px;
+  height:10px;
+}

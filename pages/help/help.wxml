@@ -1,0 +1,36 @@
+
+<view class="section">
+    <view class="item_mine" bindtap="onHelp" data-type="function">
+        <text class="item_text">功能介绍</text>
+    </view>
+    <view class="item_mine" bindtap="onHelp" data-type="process">
+        <text class="item_text">使用流程</text>
+    </view>
+</view>
+
+<view class="section" style="margin-top:20px">
+    <view class="item_mine" bindtap="onHelp" data-type="upload">
+        <text class="item_text">上传物品</text>
+    </view>
+    <view class="item_mine" bindtap="onHelp" data-type="trade">
+        <text class="item_text">如何交易</text>
+    </view>
+    <view class="item_mine" bindtap="onHelp" data-type="buy">
+        <text class="item_text">购买须知</text>
+    </view>
+
+    <view class="item_mine" bindtap="onHelp" data-type="fetching">
+        <text class="item_text">如何提现</text>
+    </view>
+    <view class="item_mine" bindtap="onHelp" data-type="export">
+        <text class="item_text">订单导出</text>
+    </view>
+
+    <view class="item_mine" bindtap="onHelp" data-type="user">
+        <text class="item_text">用户关系</text>
+    </view>
+
+    <view class="item_mine" bindtap="onHelp" data-type="rule">
+        <text class="item_text">用户行为规范</text>
+    </view>
+</view>

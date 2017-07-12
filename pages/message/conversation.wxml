@@ -1,0 +1,46 @@
+<import src="../templates/product_template.wxml"/>
+
+<view class="fix_top_panel" >
+    <template is="conversation_product_item" data="{{...product}}"/>
+</view>
+
+
+<scroll-view  class="box_bd" scroll-y="true" style="height:960rpx;" scroll-into-view="{{toview}}" scroll-top="{{scrollTop}}" >
+    <!--<view class="box_bd" id="messageList">-->
+        <view wx:for="{{list}}">
+            <view class="message me" wx:if="{{item.is_mine}}">
+                <image class="avatar" src="{{myInfo.avatarUrl}}"/>
+                <view class="content">
+                    <view class="nickname">{{myInfo.nickName}}<span class="time">{{item.created_at}}</span></view>
+                    <view class="bubble bubble_primary right">
+                        <view class="bubble_cont">
+                            <view class="plain">
+                                <pre>{{item.text}}</pre>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+
+            <view class="message" wx:if="{{!item.is_mine}}">
+                <image class="avatar" src="{{user.avatar}}"/>
+                <view class="content">
+                    <view class="nickname">{{user.displayName}}<span class="time">{{item.created_at}}</span></view>
+                    <view class="bubble bubble_default left">
+                        <view class="bubble_cont">
+                            <view class="plain">
+                                <pre>{{item.text}}</pre>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+
+        <!--</view>-->
+    </view>
+</scroll-view>
+
+<view class="fix_bottom_panel" style="background-color: white;display:flex;align-items:center; height: 40px">
+    <input placeholder="想说点什么？" class="input_text" bindinput="messageInput" value="{{inputMessage}}"/>
+    <text class="btn btn_send" bindtap="onSend" confirm-type="发送" bindconfirm="onSend">发送</text>
+</view>

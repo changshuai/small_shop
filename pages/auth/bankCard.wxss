@@ -1,0 +1,22 @@
+.weui-cells__title {
+  margin-top:.5em;
+  margin-bottom:.5em;
+  padding-left:0px;
+  padding-right:5px;
+  color:black;
+  font-size:16px;
+  width:70px;
+}
+
+.item_mine {
+  margin-top:-1px;
+  background-color:white;
+  border-bottom:2px solid #eee;
+  padding-top: 8px;
+  padding-left: 10px;
+  height:40px;
+}
+.item_right {
+  float: right;
+  padding-right: 10px;
+}

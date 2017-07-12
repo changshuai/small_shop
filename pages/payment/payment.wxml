@@ -1,0 +1,12 @@
+<view class="section_item">
+<text>订单金额</text> <text style="float:right;color:red">{{orderMoney}} 元</text>
+</view>
+
+<view class="section_item" style="height: 40px;" bindtap="onPay">
+    <image class="icon" src="../images/icon_weixin_payment.png" style="float: left;width: 30px;heigh: 30px;display: inline-block;"></image>
+    <view style="margin-left: 40px;">
+        <text style="display: block;font-size: 14px;">微信支付</text>
+        <text style="float: left;font-size: 12px;">微信安全支付</text>
+    </view>
+    <image class="icon" src="../images/icon_right_arrow.png" style="float: right;position:relative;top:-19px"></image>
+</view>

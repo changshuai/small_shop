@@ -1,0 +1,24 @@
+<!--pages/product/list.wxml-->
+<view class="container">
+
+    <view class="section" style="margin-top:20px">
+    <scroll-view scroll-top="{{scrollTop}}" scroll-y="true"
+                 bindscrolltolower="bindDownLoad" bindscroll="scroll" bindscrolltoupper="refresh">
+
+        <view bindtap="switchToDetail" data-index="{{index}}" class="item" wx:for="{{list}}" style="margin-bottom:5px;">
+
+                <text class="title">{{item.name}}</text>
+                <!--<text class="description">{{item.description}}</text>-->
+
+        </view>
+    </scroll-view>
+    </view>
+
+    <view class="body-view">
+        <loading hidden="{{hidden}}" >
+            加载中...
+        </loading>
+    </view>
+
+
+</view>

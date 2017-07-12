@@ -1,0 +1,113 @@
+<view class="page">
+    <view class="order_status">{{order_status_str}} <text wx:if="{{content.order_status == 0}}">￥{{content.pay_amount}}</text></view>
+    <view class="section_item">
+        <view class="receive_info">
+            <view class="user_info">
+                <text>{{content.receiver_name}}</text>
+                <text style="margin-left:15px">{{content.receiver_mobile}}</text>
+            </view>
+            <view class="address">
+            <text>{{content.address}}</text>
+            </view>
+        </view>
+    </view>
+
+    <view class="section_item product_wrapper">
+
+
+        <view class="view_image_wrapper">
+            <image class="view_image_item" mode="aspectFill"  src="{{ content.image_urls[0] + '?imageView2/1/w/200/h/200' }}"></image>
+        </view>
+        <text class="title">{{content.name}}</text>
+
+        <text class="small_text price_text">￥{{content.price}}</text>
+        <text class="small_text number_text">x {{content.buy_count}}</text>
+    </view>
+
+    <view class="section_item">
+        <view class="classname">
+            <text class="small_text"> 商品总额： </text>
+            <text id="price" class="small_text text_right red"> ￥{{content.price * content.buy_count}} </text>
+        </view>
+
+        <view class="classname">
+            <text class="small_text"> 运费： </text>
+            <text id="delivery_fee" class="small_text text_right red"> ￥{{content.delivery_fee}} </text>
+        </view>
+
+    </view>
+
+    <view class="section_item">
+        <view class="classname">
+            <text class="small_text"> 订单金额： </text>
+            <text id="delivery_fee" class="small_text text_right red"> ￥{{content.pay_amount}} </text>
+        </view>
+
+    </view>
+
+    <view class="section_item">
+        <view class="classname">
+            <text class="small_text"> 订单编号：</text>
+            <text id="price" class="small_text text_right "> {{content.order_id}} </text>
+        </view>
+
+        <view class="classname">
+            <text class="small_text"> 下单时间：</text>
+            <text id="delivery_fee" class="small_text text_right "> {{content.created_at}} </text>
+        </view>
+
+    </view>
+
+    <view class="section_item">
+        <view class="classname">
+            <text class="small_text">  订购方式： </text>
+            <text id="price" class="small_text text_right red" hidden="{{content.buy_type == 0}}"> 在线支付 </text>
+            <text id="price" class="small_text text_right red" hidden="{{content.buy_type != 0}}"> 预订不支付 </text>
+        </view>
+    </view>
+
+    <view class="section_item" hidden="{{!content.express_company}}">
+        <view class="classname">
+            <text class="small_text"> 快递公司: </text>
+            <text id="price" class="small_text text_right"> {{content.express_company}} </text>
+        </view>
+
+        <view class="classname">
+            <text class="small_text"> 快递单号：</text>
+            <text id="delivery_fee" class="small_text text_right"> {{content.express_number}} </text>
+        </view>
+
+    </view>
+
+
+    <view class="fix_bottom section_item inner_item">
+        <view class="inline_block float_left" hidden="{{content.pay_status==0}}">
+            <text> 已支付： </text>
+            <text class="red"> ￥{{ content.pay_amount }} </text>
+        </view>
+    </view>
+
+    <view class="fix_bottom section_item" wx:if="{{content.order_status ==0 && isMyBuy == false && content.pay_status == 0 && !isModifyPrice}}" style="padding-top: 2px; padding-bottom:2px;">
+        <button type="warn" bindtap="onModifyPrice">修改价格</button>
+    </view>
+
+    <view class="fix_bottom section_item" wx:if="{{content.order_status ==0 && isMyBuy == false && isModifyPrice}}" style="padding-top: 2px; padding-bottom:2px;display: flex;align-items: center">
+        <input class="input_border" type="digit" step="0.01" bindinput="priceInput" maxlength="6" placeholder="0" value="{{price}}" />
+        <span style="margin-right:10px">元</span>
+        <button class="panel_buy_left"  bindtap="onModifyPriceConfirm">确定价格</button>
+    </view>
+
+    <view class="fix_bottom section_item" wx:if="{{content.order_status == 0 && isMyBuy == true && content.pay_status==0}}" style="padding-top: 2px; padding-bottom:2px;">
+        <button type="warn" bindtap="onContinuePay">立即支付</button>
+    </view>
+
+    <view class="fix_bottom section_item" wx:if="{{content.order_status == 2 && isMyBuy == false && content.pay_status==1 }}" style="padding-top: 2px; padding-bottom:2px;">
+        <button type="warn" bindtap="onSendProduct">发货</button>
+    </view>
+
+    <view class="fix_bottom section_item" wx:if="{{content.order_status == 6 && isMyBuy == true && content.pay_status==1 }}" style="padding-top: 2px; padding-bottom:2px;">
+        <button type="warn" bindtap="onReceive">收货</button>
+    </view>
+
+
+</view>

@@ -1,0 +1,48 @@
+<view class="section">
+    <view class="weui-cell weui-cell_input">
+
+        <view class="weui-cells__title">
+            <text>姓名:</text>
+        </view>
+        <view class="weui-cell__bd">
+            <input class="weui-input" bindinput="mobileInput" placeholder="请输入姓名" />
+        </view>
+    </view>
+
+    <view class="weui-cell weui-cell_input">
+        <view class="weui-cells__title">
+            <text>身份证号:</text>
+        </view>
+        <view class="weui-cell__bd">
+            <input class="weui-input" bindinput="codeInput" placeholder="请输入身份证号"/>
+        </view>
+    </view>
+</view>
+
+<view class="section" style="margin-top:20px">
+    <view class="item_mine" bindtap="onHelp">
+        <text class="item_text">身份证正面</text>
+        <image class="weui-uploader__img" src="{{image1}}" mode="aspectFill" />
+        <view class="weui-uploader__input-box" >
+            <view class="weui-uploader__input" bindtap="chooseImage"></view>
+        </view>
+    </view>
+    <view class="item_mine" bindtap="onAbout">
+
+        <text class="item_text">身份证背面</text>
+        <image class="weui-uploader__img" src="{{image2}}" mode="aspectFill" />
+        <view class="weui-uploader__input-box" >
+            <view class="weui-uploader__input" bindtap="chooseImage"></view>
+        </view>
+    </view>
+    <view class="item_mine" bindtap="onAbout">
+
+        <text class="item_text">手持身份证</text>
+        <image class="weui-uploader__img" src="{{image3}}" mode="aspectFill" />
+        <view class="weui-uploader__input-box" >
+            <view class="weui-uploader__input" bindtap="chooseImage"></view>
+        </view>
+    </view>
+</view>
+
+<button type="warn" style="margin:10px" disabled="{{login_enable}}" bindtap="instantLogin">认证</button>

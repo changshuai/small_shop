@@ -1,0 +1,18 @@
+<template name="order_item_cell">
+    <view class="item_status">
+        <text class="cell_pro_from">订单号:{{order_id}}</text>
+        <text class="cell_pro_status" bindtap="onEditStatus">{{order_status_str}}</text>
+        <!--<text class="cell_pro_status" catchtap="onSendExpress" hidden="{{order_status != 2}}" data-index="{{index}}">点击发货</text>-->
+    </view>
+
+    <view class="item_content">
+        <image class="item_image" src="{{image_urls + '?imageView2/1/w/200/h/200'}}"></image>
+        <text class="item_title" >{{name}}</text>
+    </view>
+
+    <view class="item_deal">
+        <view class="float_left">{{updated_at}}</view>
+        <text class="item_deal_unpay" wx:if="{{pay_status == 0}}" >未支付:{{pay_amount}}</text>
+        <text class="item_deal_unpay" wx:if="{{pay_status == 1}}">已支付:{{pay_amount}}</text>
+    </view>
+</template>

@@ -1,0 +1,82 @@
+<import src="../templates/help_template.wxml"/>
+<view class="section">
+    <view class="item_text" bindtap="onHelp" wx:if="{{type == 'function'}}">
+        <text class="item_text">
+            本平台为广大需要转让私人物品的用户提供一种简便，快捷的方式.
+        </text>
+        <text class="item_text">
+            1.多种商品一键转发。
+            2.商品留言信息畅通。
+            3.好友商品相互推荐。
+            4.购买流程简单方便。
+            5.收款便利数额明晰。
+            6.多种订单一键导出。
+        </text>
+    </view>
+</view>
+
+<view class="item_text" bindtap="onHelp" wx:if="{{type == 'process'}}">
+    <text class="item_text">
+        1.上传商品。
+        2.转发自己的个人主页或者物品。
+        3.下单付款，发货收货完成交易。
+        4.订单根据状态导出excel, 一键转发给好友。
+        5.卖家发货后, 如果买家没有主动收货或其它问题，系统将在5天后自动收货，完成订单。
+        6.完成的订单，钱款将打入卖家帐户，卖家可以提现到个人帐户，目前只支持微信提现。
+
+    </text>
+</view>
+
+<view class="item_text" bindtap="onHelp" wx:if="{{type == 'upload'}}">
+    <text class="item_text">
+        1.需要添加物品名称、价格、图片、描述等。
+        2.上传的个人物品需要通过审核后才能对他人可见，否则只对自已可见并可转发给朋友。
+        3.被推荐的物品才可以在首页中显示。
+    </text>
+</view>
+
+<view class="item_text" bindtap="onHelp" wx:if="{{type == 'trade'}}">
+    <text class="item_text">
+        1.买家下单,未支付状态，可修改价格。
+        2.买家支付,已支付状态，卖家发货。
+        3.卖家发货,发货状态,卖家添加快递信息。
+        4.买家收货，完成订单。
+    </text>
+</view>
+
+<view class="item_text" bindtap="onHelp" wx:if="{{type == 'buy'}}">
+    <template is="buy_help_template" />
+</view>
+
+<view class="item_text" bindtap="onHelp" wx:if="{{type == 'fetching'}}">
+    <template is="fetch_help_template"/>
+</view>
+
+<view class="item_text" bindtap="onHelp" wx:if="{{type == 'export'}}">
+    <text>
+    1. 下边导航中，选择订单。
+    2. 点击导出Excel, 选择需要状态的订单。
+    3. 在我的，可以选择我的导出，再次确认导出结果并转发。
+    </text>
+</view>
+
+<view class="item_text" bindtap="onHelp" wx:if="{{type == 'user'}}">
+    <text>
+    1. 用户之间可以相互关注。
+    2. 相互关注的用户可以查看并转发对方发布过的物品。
+    </text>
+</view>
+
+<view class="item_text" bindtap="onHelp" wx:if="{{type == 'rule'}}">
+    <text class="item_text">
+        1.不得进行骗取他人财务的欺诈行为。
+        2.不得频繁异常地发生交易纠纷导致他人的损失。
+        3.不得发布国家法律不允许的违禁商品信息。
+        4.不得发布垃圾广告信息。
+        5.不得发布假货。
+        6.不得发布存在交易风险的虚拟商品信息。
+        7.不得发布泄漏他们陷私的内容。
+        8.不得侮辱、诽谤等方式对他人进行人身攻击。
+
+    </text>
+</view>

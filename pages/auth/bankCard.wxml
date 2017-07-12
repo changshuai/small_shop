@@ -1,0 +1,58 @@
+<text style="font-size: 14px; color: #9b9b9b;">只能绑定借记卡，提现时银行卡等姓名信息必须与您的认证信息一致</text>
+<view class="section">
+    <view class="item_mine" bindtap="onHelp">
+        <text class="item_text">姓名:</text>
+        <text class="item_right">王一</text>
+    </view>
+    <view class="item_mine" bindtap="onHelp">
+        <text class="item_text">身份证号:</text>
+        <text class="item_right">21028192812345443322</text>
+    </view>
+</view>
+
+<view class="section" style="margin-top:20px">
+    <view class="item_mine" bindtap="onHelp">
+        <text class="item_text">所属银行:</text>
+        <text class="" style="margin-left: 20px">请选择银行</text>
+        <image class="item_right" bindtap="onSelectCategory" style="width: 25px;height: 25px" src="../images/icon_right_arrow.png"></image>
+    </view>
+    <view class="item_mine weui-cell weui-cell_input" bindtap="onHelp">
+        <text class="item_text">银行卡号:</text>
+        <view class="weui-cell__bd">
+            <input class="weui-input" bindinput="codeInput" placeholder="请输入银行卡号"/>
+        </view>
+    </view>
+
+    <view class="item_mine" bindtap="onHelp">
+        <text class="item_text">绑定手机:</text>
+        <text class="item_right">1353329283</text>
+    </view>
+
+    <view class="item_mine weui-cell weui-cell_input">
+        <view class="weui-cell__bd">
+            <input class="weui-input" bindinput="codeInput" placeholder="验证码"/>
+        </view>
+        <view class="weui-cell__ft">
+            <view class="weui-vcode-btn" hidden="{{!code_enable}}" bindtap="getVerifyCode">获取验证码</view>
+            <view class="weui-vcode-btn" hidden="{{code_enable}}" disabled="disabled" >正在发送:{{timer_count}}</view>
+        </view>
+    </view>
+
+</view>
+
+<button type="warn" style="margin:10px" disabled="{{login_enable}}" bindtap="instantLogin">确认</button>
+
+<view style="position: absolute;top: 0px;background-color:white;width:100%;z-index:5000;" hidden="{{!category_list || category_list.length == 0}}">
+    <scroll-view scroll-top="{{scrollTop}}" scroll-y="true"
+                 bindscrolltolower="bindDownLoad" bindscroll="scroll" bindscrolltoupper="refresh">
+
+        <view bindtap="onItemClick" data-index="{{index}}" class="item" wx:for="{{category_list}}" style="margin-bottom:5px;">
+
+            <view style="display:flex; justify-content:space-between;align-items:center" >
+                <text class="">{{item.name}}</text>
+            </view>
+
+        </view>
+    </scroll-view>
+
+</view>

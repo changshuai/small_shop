@@ -1,0 +1,51 @@
+<template name="product_item_images">
+    <scroll-view class="scroll_image" scroll-x="true" hidden="{{item.product.images.length <= 0}}">
+        <block class="view_image" wx:for="{{item.product.images}}">
+            <view class="view_image_wrapper">
+                <image mode="aspectFill" class="view_image_item" src="{{item + '?imageView2/1/w/200/h/200'}}"></image>
+            </view>
+        </block>
+    </scroll-view>
+</template>
+
+<template name="product_item_cell">
+
+    <view class="text">
+        <text class="title">{{product.name}}</text>
+        <!--<text class="description">{{item.description}}</text>-->
+    </view>
+
+    <!--<scroll-view class="scroll_image" scroll-x="true" hidden="{{product.images.length <= 0}}">-->
+        <!--<block class="view_image" wx:for="{{product.images}}">-->
+            <!--<view class="view_image_wrapper">-->
+                <!--<image mode="aspectFill" class="view_image_item" src="{{item + '?imageView2/1/w/200/h/200'}}"></image>-->
+            <!--</view>-->
+        <!--</block>-->
+    <!--</scroll-view>-->
+
+    <scroll-view class="scroll-view_H" scroll-x="true" style="width: 200%;height:100px" hidden="{{product.images.length <= 0}}">
+        <view class="view_image_wrapper" wx:for="{{product.images}}">
+            <image mode="aspectFill" class="view_image_item" src="{{item + '?imageView2/1/w/200/h/200'}}"></image>
+        </view>
+    </scroll-view>
+
+
+</template>
+
+<template name="conversation_product_item">
+    <view style="background-color: white;padding-bottom:1px;display: flex; align-item:center">
+        <view class="view_image_wrapper">
+            <image style="width: 100px;height: 100px;margin:5px;" mode="aspectFill"  src="{{images[0] + '?imageView2/1/w/200/h/200' }}" ></image>
+        </view>
+
+        <view style="margin:10px; width: 50%;">
+            <text class="title">{{name}}</text>
+            <text class="small_text" style="display: block;color: red;margin-top: 10px">价格：￥{{price}}</text>
+            <text class="small_text">快递：￥{{deliveryFee}}</text>
+        </view>
+        <view style="margin:10px;">
+            <view style="height: 30px"></view>
+            <button style="margin:10px; font-size:14px; background-color:red; color:white;width: 180rpx;"  form-type="submit" data-type='1' bindtap="onPay" >立即购买</button>
+        </view>
+    </view>
+</template>

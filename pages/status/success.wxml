@@ -1,0 +1,8 @@
+<view>
+ <view class="empty" style="text-align:center; margin-top: 80px">
+  <icon type="success" size="120" type="success"/>
+ </view>
+ <view class="empty" style="text-align:center;margin-top: 20px">
+  <text>{{content}}</text>
+ </view>
+</view>

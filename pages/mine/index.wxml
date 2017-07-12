@@ -1,0 +1,84 @@
+<!--index.wxml-->
+<view class="container">
+    <view  class="userinfo">
+        <image bindtap="onUserIconTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </view>
+</view>
+
+<view class="section" style="margin-top:20px">
+
+    <view class="item_mine" bindtap="onMyAccount">
+        <image class="item_icon" src="../images/mine/money_icon.png"></image>
+        <text class="item_name">余额</text>
+    </view>
+    <view class="item_mine" bindtap="onAuth">
+        <image class="item_icon" src="../images/mine/auth_icon.png"></image>
+        <text class="item_name">实名认证</text>
+    </view>
+
+    <!--<view class="item_mine">-->
+        <!--<image class="item_icon" src="../images/mine/score_icon.png"></image>-->
+        <!--<text class="item_name">积分</text>-->
+    <!--</view>-->
+
+</view>
+
+<view class="section" style="margin-top:20px">
+
+    <!--<view class="item_mine">-->
+        <!--<image class="item_icon" src="../images/mine/qrcode_icon.png"></image>-->
+        <!--<text class="item_name">我的二维码</text>-->
+    <!--</view>-->
+
+    <view class="item_mine" bindtap="onFollowingList">
+        <image class="item_icon" src="../images/mine/following_icon.png" ></image>
+        <text class="item_name">我的关注</text>
+    </view>
+
+    <view class="item_mine" bindtap="onFollowedList">
+        <image class="item_icon" src="../images/add.png" ></image>
+        <text class="item_name">关注我的</text>
+    </view>
+
+    <!--<view class="item_mine">-->
+        <!--<image class="item_icon" src="../images/mine/scan_icon.png"></image>-->
+        <!--<text class="item_name">扫一扫</text>-->
+    <!--</view>-->
+
+</view>
+
+<!--<view class="section" style="margin-top:20px">
+  <view class="item">
+    <image class="item_icon" src="../images/add.png"></image>
+    <text class="item_name">客户管理</text>
+  </view>
+  <view class="item">
+    <image class="item_icon" src="../images/add.png"></image>
+    <text class="item_name">提现记录</text>
+  </view>
+  <view class="item">
+    <image class="item_icon" src="../images/add.png"></image>
+    <text class="item_name">拼团</text>
+  </view>
+</view>-->
+
+<view class="section" style="margin-top:20px">
+    <!--<view class="item_mine">-->
+        <!--<image class="item_icon" src="../images/mine/favor_icon.png"></image>-->
+        <!--<text class="item_name">收藏</text>-->
+    <!--</view>-->
+    <view class="item_mine" bindtap="onAdviceMessage">
+        <image class="item_icon" src="../images/mine/comments_icon.png"></image>
+        <text class="item_name">意见反馈</text>
+    </view>
+    <view class="item_mine" bindtap="onExportTap">
+        <image class="item_icon" src="../images/mine/export_icon.png"></image>
+        <text class="item_name">我的导出</text>
+    </view>
+    <view class="item_mine" bindtap="onSettingTap">
+        <image class="item_icon" src="../images/mine/setting_icon.png"></image>
+        <text class="item_name">设置</text>
+    </view>
+</view>
+

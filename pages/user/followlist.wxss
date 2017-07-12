@@ -1,0 +1,11 @@
+/* pages/product/list.wxss */
+.userinfo-avatar {
+    width: 80rpx;
+    height: 80rpx;
+    margin: 5px;
+    border-radius: 50%;
+}
+.dd_icon{
+    width: 32px;
+    height: 32px;
+}

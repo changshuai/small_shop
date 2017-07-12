@@ -1,0 +1,31 @@
+/* example/input/input.wxss */
+.span_btn {
+    border-radius: 5px;
+    border: 1px solid;
+    width:16px;
+    padding-left:8px;
+}
+.span_image_del {
+    background-image:url(../../images/del.png);
+    float:right;
+    right:0;
+    width:16px;
+    height:16px;
+    background-size:100% 100%;
+    top:-7;
+}
+.image_remove{
+    float:right;
+    width:15px;
+    height:15px;
+    display:block;
+    position:absolute;
+}
+
+.popLayer {
+    position: absolute;
+    top: 0px;
+    background-color:white;
+    width:100%;
+    z-index:100;
+}

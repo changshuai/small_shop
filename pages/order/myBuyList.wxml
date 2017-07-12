@@ -1,0 +1,18 @@
+<import src="../templates/template.wxml"/>
+<view class="container">
+
+    <scroll-view scroll-top="{{scrollTop}}" scroll-y="true" bindscrolltolower="loadmore" bindscroll="scroll" bindscrolltoupper="refresh">
+
+        <view  bindtap="onItemTap" data-index="{{index}}" class="item" wx:for="{{list}}" style="margin-top:5px;">
+
+            <template is="order_item_cell" data="{{...item}}"/>
+        </view>
+
+    </scroll-view>
+
+    <import src="../templates/empty_template.wxml"/>
+    <view wx:if="{{list.length == 0}}">
+        <template is="empty_template"/>
+    </view>
+
+</view>

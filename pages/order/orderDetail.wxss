@@ -1,0 +1,9 @@
+
+
+.order_status{
+    height: 40px;
+    background-color: #FF6A6A;
+    color:white;
+    padding-top: 10px;
+    padding-left: 20px;
+}

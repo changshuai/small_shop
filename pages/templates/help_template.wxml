@@ -1,0 +1,17 @@
+<template name="fetch_help_template">
+    <text class="">
+        1、每天只能提现一次并且最多1000元。
+        2、到帐时间根据微信支付平台相关，一般为1-3个工作日。
+        3、由于第三方服务费用，目前提现收取1.5% 的服务费用。
+    </text>
+</template>
+
+<template name="buy_help_template">
+<text class="item_text">
+    1.本平台不保证商品的质量，请消费者自行鉴别。
+    2.本平台所有商品相关的服务包括但不限于售后服务，全部由卖方提供。
+    3.本平台不提供退款功能，买卖双方达成退货协议后可联系客服处理。
+    4.本平台暂时不提供发票服务。
+
+</text>
+</template>

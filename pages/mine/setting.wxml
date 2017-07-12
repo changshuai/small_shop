@@ -1,0 +1,24 @@
+<!--index.wxml-->
+<!--<view class="section" style="margin-top:20px">-->
+    <!--<view class="item_mine" bindtap="onLogout">-->
+        <!--<image class="item_icon" src="../images/mine/comments_icon.png"></image>-->
+        <!--<text class="item_name">退出</text>-->
+    <!--</view>-->
+<!--</view>-->
+
+<view class="section" style="margin-top:20px">
+    <view class="item_mine" bindtap="onHelp">
+        <text class="item_text">帮助</text>
+    </view>
+    <view class="item_mine" bindtap="onAbout">
+
+        <text class="item_text">关于</text>
+    </view>
+</view>
+
+<view class="section" style="margin-top:20px">
+    <view class="item_mine" bindtap="onLogin">
+        <text class="item_text">登陆</text>
+    </view>
+</view>
+

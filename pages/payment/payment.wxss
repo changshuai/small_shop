@@ -1,0 +1,14 @@
+.icon {
+    width: 30px;
+    height: 30px;
+}
+.block {
+    display: block;
+}
+.section_item {
+    padding: 10px;
+    background-color: #fff;
+    color: #787878;
+    border-top: 1px solid #eaeaea;
+    border-bottom: 1px solid #eaeaea;
+}

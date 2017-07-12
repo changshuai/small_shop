@@ -1,0 +1,55 @@
+<import src="../templates/template.wxml"/>
+<import src="../templates/empty_template.wxml"/>
+
+<view class="page">
+    <!--filter-->
+    <view class="nav fix_top">
+        <view class="nav-son borders {{dropdown_active_index == 2? 'active' : ''}}" bindtap="showDropdownMenu"
+              data-nav="2">
+            <view class="content" hidden="{{dropdown_selected_index != -1 && filterType == 2}}">状态</view>
+            <view class="content" hidden="{{(dropdown_selected_index == -1 && filterType == 2 )|| filterType != 2}}">
+                {{dropdown_array[1][dropdown_selected_index]}}
+            </view>
+            <view class="icon"></view>
+        </view>
+        <view class="nav-son borders {{dropdown_active_index == 3? 'active' : ''}}" bindtap="showDropdownMenu"
+              data-nav="3">
+            <view class="content">导出Excel</view>
+            <view class="icon"></view>
+        </view>
+    </view>
+
+    <view class="top_fix_menu temp1 {{is_dropdown_display ? 'slidown' : 'slidup'}} {{!is_dropdown_display ? 'disappear':''}}">
+        <view wx:for="{{dropdowncontent}}" bindtap="dropdown_selected" data-index='{{index}}'>
+            {{item}}
+        </view>
+    </view>
+
+    <scroll-view scroll-top="{{scrollTop}}" scroll-y="true" bindscrolltolower="loadmore" bindscroll="scroll"
+                 bindscrolltoupper="refresh">
+
+        <view bindtap="switchToDetail" data-index="{{index}}" class="item" wx:for="{{list}}" style="margin-top:5px;">
+
+            <template is="order_item_cell" data="{{...item}}"/>
+        </view>
+
+    </scroll-view>
+
+    <view wx:if="{{list.length == 0}}">
+        <template is="empty"/>
+    </view>
+
+    <view class="fullbg {{isfull ?'fullopacity':'fullnotopacity'}}" bindtap="hidebg"></view>
+
+    <view class="loadMore" hidden="{{!has_more || list.length == 0}}">加载更多...</view>
+    <view class="loadMore" hidden="{{has_more || list.length < 15}}">没有更多了</view>
+
+    <view class="body-view">
+        <loading hidden="{{loading_hidden}}" bindchange="loadingChange">
+            加载中...
+        </loading>
+    </view>
+</view>
+
+
+
