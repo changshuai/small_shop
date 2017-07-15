@@ -3,9 +3,26 @@
 功能包括：创建商品，商品管理，生成新订单，订单管理，订单导出，微信支付，简单文字聊天，个人主页，用户关系管理，提现系统，意见反馈，短信验证码。
 
 部分画面截图：
-![image](http://ooa0nplv0.bkt.clouddn.com/Screen%20Shot%202017-07-15%20at%209.43.10%20PM.png）
-
+首页：
 ![image](http://ooa0nplv0.bkt.clouddn.com/home.png)
+
+商品列表：
+![image](http://ooa0nplv0.bkt.clouddn.com/productlist.png)
+
+个人属性：
+![image](http://ooa0nplv0.bkt.clouddn.com/profile.png)
+
+对话：
+![image](http://ooa0nplv0.bkt.clouddn.com/message.png)
+
+支付：
+![imae](http://ooa0nplv0.bkt.clouddn.com/payment.png)
+
+订单：
+![image](http://ooa0nplv0.bkt.clouddn.com/order.png)
+
+商品详情：
+![image](http://ooa0nplv0.bkt.clouddn.com/productdetail.png)
 
 如何运行：服务器部署在阿里云，代码稍后开源。
 
